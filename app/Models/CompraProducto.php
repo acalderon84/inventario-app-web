@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Models;
-
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class CompraProduto extends Pivot
+class CompraProducto extends Pivot
 {
+    use HasFactory;
     protected $table = 'compra_producto';
     protected $fillable =
     [

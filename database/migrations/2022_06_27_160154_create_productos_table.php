@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('descripcion');
             $table->integer('existencia')->default(0);
             $table->integer('presentacion')->default(1);
+            $table->integer('proveedor_id');
             $table->timestamps();
         });
     }

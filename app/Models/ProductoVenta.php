@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Models;
-
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 
 class ProductoVenta extends Pivot
 {
+    use HasFactory;
    protected $table  = 'producto_venta';
    protected $fillable =
    [
@@ -14,7 +15,7 @@ class ProductoVenta extends Pivot
     'cantidad',
     'precio_unitario',
     'subtotal',
-    '',
+    
    ];
     //
 }

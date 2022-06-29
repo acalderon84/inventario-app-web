@@ -14,7 +14,7 @@ class Proveedor extends Model
     'descripcion',
     'telefono',
     'direccion',
-
+    'proveedor_id',
    ];
     use HasFactory;
 }

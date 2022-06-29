@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\CompraController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +24,21 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+//Ruta para el controlador ProductoController
+Route::resource('productos', ProductoController::class);
+
+//Ruta para el controlador CompraController
+Route::resource('compras', CompraController::class);
+
+
+
+
+
+
+
+
+
+
+
+
