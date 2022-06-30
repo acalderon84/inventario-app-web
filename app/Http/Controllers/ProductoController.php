@@ -7,6 +7,20 @@ use Illuminate\Http\Request;
 
 class ProductoController extends Controller
 {
+    //Presentaciones de productos para el seelect de la vista
+    public $presentaciones = [
+            '1' => 'Unidad',
+            '2' => 'Kilos',
+            '3' => 'Litros',
+            '4' => 'Gramos',
+            '5' => 'Miligramos',
+            '6' => 'Libras',
+            '7' => 'Onzas',
+            '8' => 'Pies',
+            '9' => 'Pulgadas',
+            '10' => 'botella',
+        ];
+
 
     public function index()
     {
@@ -23,7 +37,15 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        //
+        //traer todos los proveedores
+        $proveedores = \App\Models\Proveedor::query()
+          ->select('id', 'nombre')
+          ->get()
+          ->pluck('nombre', 'id');
+          
+        $presentaciones = $this->presentaciones;
+        //Mostrar el formulario de creación de productos
+        return view('productos.create', compact('presentaciones', 'proveedores'));
     }
 
     /**
@@ -34,7 +56,10 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //insertar un nuevo producto en la base de datos
+        $producto = Producto::create($request->all());
+        //redireccionar al index de productos
+        return redirect()->route('productos.index')->with('success', 'Producto guardado con éxito');
     }
 
     /**
@@ -45,7 +70,8 @@ class ProductoController extends Controller
      */
     public function show(Producto $producto)
     {
-        //
+        //Mostrar el producto con su id en la vista de la
+        return view('productos.show', compact('producto'));
     }
 
     /**
@@ -56,7 +82,11 @@ class ProductoController extends Controller
      */
     public function edit(Producto $producto)
     {
-        //
+        //presentaciones de productos para el select de la vista
+
+         //Mostrar la vista de editar un producto
+         $presentaciones = $this->prentaciones;
+        return view('productos.edit', compact('producto', 'presentaciones'));
     }
 
     /**
@@ -68,7 +98,10 @@ class ProductoController extends Controller
      */
     public function update(Request $request, Producto $producto)
     {
-        //
+        //Guardar los cambios en la base de datos
+        $producto->update($request->all());
+        //redireccionar al index de productos
+        return redirect()->route('productos.index');
     }
 
     /**
@@ -79,6 +112,9 @@ class ProductoController extends Controller
      */
     public function destroy(Producto $producto)
     {
-        //
+        //eliminar el producto de la base de datos
+        $producto->delete();
+        //redireccionar a la vista de Productos
+        return redirect()->route('productos.index');
     }
 }
