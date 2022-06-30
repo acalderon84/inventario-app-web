@@ -18,4 +18,20 @@ class Producto extends Model
     'presentacion',
     'proveedor_id',
    ];
+   
+   //Relaciones de la base de datos
+    public function proveedor()
+    {
+     return $this->belongsTo(Proveedor::class);
+    }
+
+
+public function compras()
+{
+    return $this -> hasMany(CompraProducto::class);
+}
+public function ventas()
+{
+    return $this->hasMany(CompraProducto::class);
+}
 }

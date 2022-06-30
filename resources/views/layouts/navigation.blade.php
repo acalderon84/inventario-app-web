@@ -13,13 +13,20 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                        Panel de Control
+                        @svg('gmdi-settings-tt',  'w-6 h-6 inline, p-1')
                     </x-nav-link>
                 </div>
                 <!-- Navigation Links -->
             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                 <x-nav-link :href="route('productos.index')" :active="request()->routeIs('productos.index')">
                     Productos
+                </x-nav-link>
+            </div>
+            <!-- Navigation Links -->
+            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <x-nav-link :href="route('compras.index')" :active="request()->routeIs('compras.index')">
+                    Compras
                 </x-nav-link>
             </div>
 
@@ -69,11 +76,17 @@
         </div>
     </div>
 
-    <!-- Responsive Navigation Menu -->
+    <!-- Responsive Navigation Menu se agregan productos, compras, proveedores-->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
+                Panel de control
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('productos.index')" :active="request()->routeIs('dashboard')">
+                Productos
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('compras.index')" :active="request()->routeIs('dashboard')">
+                Compras
             </x-responsive-nav-link>
         </div>
 

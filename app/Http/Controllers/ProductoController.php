@@ -42,7 +42,7 @@ class ProductoController extends Controller
           ->select('id', 'nombre')
           ->get()
           ->pluck('nombre', 'id');
-          
+
         $presentaciones = $this->presentaciones;
         //Mostrar el formulario de creación de productos
         return view('productos.create', compact('presentaciones', 'proveedores'));
@@ -85,7 +85,7 @@ class ProductoController extends Controller
         //presentaciones de productos para el select de la vista
 
          //Mostrar la vista de editar un producto
-         $presentaciones = $this->prentaciones;
+         $presentaciones = $this->presentaciones;
         return view('productos.edit', compact('producto', 'presentaciones'));
     }
 

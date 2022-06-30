@@ -25,21 +25,32 @@
                     <!-- Mostrar en una tabla la lista de productos -->
                     <table class="table-auto w-full">
                         <thead>
-                            <tr>
+                            <tr class="bg-emerald-200">
                                 <th class="px-4 py-2">Nombre</th>
                                 <th class="px-4 py-2">Descripcion</th>
                                 <th class="px-4 py-2">Existencia</th>
+                                <th class="px-4 py-2">Proveedor</th>
+                                <th class="px-4 py-2">Acciones</th>
                             </tr>
                         </thead>
 
                         <tbody>
                             @foreach ($productos as $producto)
                                 <tr>
-                                    <td class="border px-4 py-2">{{ $producto->nombre }}</td>
+                                    <td class="border px-4 py-2">
+                                        @svg('gmdi-production-quantity-limits-o','w-6 h-6 text-gray-600')
+
+                                        {{ $producto->nombre }}
+                                        <a class ="underline font-bold text-teal-700" href="{{route('productos.show', $producto->id) }}">{{ $producto->nombre }}</a>
+                                    </td>
                                     <td class="border px-4 py-2">{{ $producto->descripcion }}</td>
                                     <td class="border px-4 py-2 text-center">{{ $producto->existencia }}</td>
-                                    <td class="border px-4 py-2 ">
-                                        <a href="{{ route('productos.edit', $producto->id) }}" class=  "p-2 text-white bg-teal-600 rounded-lg hover:text-blue-700">Editar</a>
+                                    <td class="border px-4 py-2">{{ $producto->proveedor->nombre }}</td>
+                                    <td class="border px-4 py-1 text-ce">
+                                       
+                                        <a href="{{ route('productos.edit', $producto->id) }}" class=  "p-2 text-black bg-teal-600 rounded-lg hover:text-blue-700 ">
+                                            @svg('gmdi-edit-r', 'w-6 h-6 inline')
+                                        </a>
                                         <a href="{{ route('productos.show', ["producto"=>$producto->id, "confirmar_eliminado"=>1]) }}" class="text-black-500 p-2 bg-gray-300 rounded-lg hover:text-black-700">Eliminar</a>
                                     </td>
                                 </tr>

@@ -15,7 +15,7 @@ class CompraController extends Controller
     public function index()
     {
         //etraer datos de la base de datos, tabla compras
-        $compras = compras::paginate(20);
+        $compras = Compra::paginate(20);
         //mostrar la vista y pasarle los datos
         return view('compras.index', compact('compras'));
     }
@@ -60,7 +60,8 @@ class CompraController extends Controller
      */
     public function edit(Compra $compra)
     {
-        //
+        //Mostrar la vista de editar compras
+        return view('compras.edit', compact('compra'));
     }
 
     /**
