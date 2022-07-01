@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\CompraController;
+use App\Http\Controllers\VentaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +33,8 @@ Route::resource('productos', ProductoController::class);
 Route::resource('compras', CompraController::class);
 
 
-
+//Ruta para el controlador VentaController
+Route::resource('ventas', VentaController::class);
 
 
 

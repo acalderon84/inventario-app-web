@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class ProductoController extends Controller
 {
-    //Presentaciones de productos para el seelect de la vista
+    //Presentaciones de productos para el select de la vista
     public $presentaciones = [
             '1' => 'Unidad',
             '2' => 'Kilos',

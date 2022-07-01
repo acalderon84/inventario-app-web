@@ -16,4 +16,17 @@ class Venta extends Model
     'fecha',
 
    ];
+   //Relacion de la compra con el cliente
+    public function cliente()
+    {
+     return $this->belongsTo(User::class, 'cliente_id');
+
+    }
+    //Relacion de la compra con el vendedor
+    public function vendedor()
+    {
+     return $this->belongsTo(User::class, 'user_id');
+
+    }
+
 }

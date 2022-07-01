@@ -4,6 +4,7 @@
             <span class="text-xl font-semibold leading-tight text-gray-800">
             Lista de productos
             </span>
+
         <!-- Crear un boton -->
         <a href="{{ route('productos.create') }}" class="rounded-md bg-gray-200 text-black p-2">
             <!-- Incluir un icono en formato svg: plus -->
@@ -26,8 +27,11 @@
                                 <th class="px-4 py-2">Nombre</th>
                                 <th class="px-4 py-2">Descripcion</th>
                                 <th class="px-4 py-2">Existencia</th>
+                                <th class="px-4 py-2">Proveedor</th>
+                                <th class="px-4 py-2">Acciones</th>
                             </tr>
                         </thead>
+
                         <tbody>
                             @foreach ($compras as $compra)
                                 <tr>
@@ -36,10 +40,10 @@
                                     <td class="border px-4 py-2">{{ $compra->fecha }}</td>
                                     <td class="border px4 py-2">{{ $compra->monto }}</td>
                                     <td class="border px-4 py-2 ">
-                                        <a href="{{ route('compras.edit', $compra->id) }}" class=  "p-2 text-white bg-blue-300 rounded-lg hover:text-blue-700">
+                                        <a href="{{ route('compras.edit', $compra->id) }}" class="p-2 text-white bg-blue-300 rounded-lg hover:text-blue-700">
                                             <!-- Boton editar -->
                                             @svg('gmdi-edit-r', 'w-6 h-6 inline')</a>
-                                        <a href="{{ route('compras.destroy', $compra->id) }}" class="text-red-500 bg-red-300 rounded-lg hover:text-red-700">
+                                        <a href="{{ route('compras.destroy', $compra->id) }}" class="p-2 text-red bg-red-300 rounded-lg hover:text-red-700">
                                             <!-- Boton eliminar -->
                                             @svg('gmdi-delete-outline-r', 'w-6 h-6 inline')</a>
                                     </td>
@@ -47,6 +51,7 @@
                             @endforeach
                         </tbody>
                     </table>
+
                     <hr class="m-5">
                     {{ $compras->links() }}
                 </div>

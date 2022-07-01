@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('12345678'),
         ]);
 
+        \App\Models\User::factory(1000)->create();
         \App\Models\Producto::factory(1000)->create();
         \App\Models\Compra::factory(1000)->create();
         \App\Models\Proveedor::factory(1000)->create();
